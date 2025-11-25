@@ -1,0 +1,347 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/napatt-error404/CVE100-68070503215/blob/main/sympy_assignment_68070503215\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Assignment:\n",
+        "\n",
+        "Part 1: Basic Algebra and Substitution\n",
+        "\n",
+        "Tasks:\n",
+        "\n",
+        "Define Symbol and Expression: Define the symbolic variable $x$ and the expression $E(x)$:\n",
+        "\n",
+        "$$\\\\ E(x) = 3x^2 + 5x - 7$$\n",
+        "\n",
+        "$$$$\n",
+        "\n",
+        "Evaluate (Substitute): Use the .subs() method to find the numerical value of $E(x)$ when $x = 4$.\n",
+        "\n",
+        "Expand: Define a new expression $F(x)$:\n",
+        "\n",
+        "$$\\\\ F(x) = (x+3)^2$$\n",
+        "\n",
+        "$$$$Use the expand() function to multiply this expression out into its standard form.\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "HRuUpXhPsgOo"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#write your code\n",
+        "# --- Part 1: Basic Algebra and Substitution ---\n",
+        "\n",
+        "import numpy as np\n",
+        "import sympy as sp\n",
+        "\n",
+        "x = sp.Symbol('x')\n",
+        "E = 3*x**2 + 5*x - 7\n",
+        "E\n"
+      ],
+      "metadata": {
+        "id": "NX1mObLitFRU",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 39
+        },
+        "outputId": "a75a9ffd-3594-4e85-9d67-05d0d28ad70a"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "3*x**2 + 5*x - 7"
+            ],
+            "text/latex": "$\\displaystyle 3 x^{2} + 5 x - 7$"
+          },
+          "metadata": {},
+          "execution_count": 4
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 2. Evaluate (Substitute)\n",
+        "\n",
+        "sub = E.subs(x, 4)\n",
+        "print('E(4)=', sub)\n"
+      ],
+      "metadata": {
+        "id": "8MLPGHvctUxI",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "d689c160-8312-4e58-dad1-d7a989323b48"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "E(4)= 61\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 3. Expand the expression\n",
+        "\n",
+        "F_function = sp.expand((x+3)**2)\n",
+        "F_function"
+      ],
+      "metadata": {
+        "id": "jn-K6-qetYuh",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 39
+        },
+        "outputId": "e38a4ec0-a226-4216-8361-23531a4e8360"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "x**2 + 6*x + 9"
+            ],
+            "text/latex": "$\\displaystyle x^{2} + 6 x + 9$"
+          },
+          "metadata": {},
+          "execution_count": 6
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Part 2: Solving Equations\n",
+        "\n",
+        "Tasks:\n",
+        "\n",
+        "Solve a Quadratic Equation: Use the solve() function to find the exact $x$ values that satisfy:\n",
+        "\n",
+        "$$\\\\ x^2 - 4x + 3 = 0$$\n",
+        "\n",
+        "$$$$\n",
+        "\n",
+        "Solve a Linear System: Define two variables, $x$ and $y$. Use solve() to find the exact values of $x$ and $y$ that satisfy both equations:\n",
+        "\n",
+        "$$\\\\ \\text{Equation 1: } x + y = 10$$\n",
+        "\n",
+        "$$$$$$\n",
+        "$$\\text{Equation 2: } 2x - y = 5\n",
+        "\n",
+        "$$\\\\ *(Hint: Pass a list of equations and a list of variables to `solve()`.)*$$"
+      ],
+      "metadata": {
+        "id": "VVdqzHFos9LA"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#write your code\n",
+        "# --- Part 2: Solving Equations ---\n",
+        "# 1. Solve a Quadratic Equation: x^2 - 4x + 3 = 0\n",
+        "\n",
+        "sol = sp.solve(x**2 - 4*x + 3, x)\n",
+        "sol\n"
+      ],
+      "metadata": {
+        "id": "kHU0iMKXtItp",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "513d090b-326b-41da-b214-211a12cd5be0"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[1, 3]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 9
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 2. Solve a Linear System\n",
+        "\n",
+        "y = sp.Symbol('y')\n",
+        "sol_linear = sp.solve([x + y - 10, 2*x - y - 5], [x, y])\n",
+        "sol_linear\n"
+      ],
+      "metadata": {
+        "id": "SmAkpakxteU1",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "258acb51-d884-4a16-cefc-d2806be24098"
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "{x: 5, y: 5}"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 10
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Part 3: Fundamental Calculus\n",
+        "\n",
+        "Tasks:\n",
+        "\n",
+        "Find the Derivative: Define a function $g(x) = 4x^3 - 6x^2$. Use diff() to find the first derivative, $g'(x)$.\n",
+        "\n",
+        "Find the Integral: Use integrate() to find the indefinite integral of the original function $g(x) = 4x^3 - 6x^2$. (Note: SymPy does not automatically add the constant of integration $+C$.)"
+      ],
+      "metadata": {
+        "id": "xl3sKEpitCJc"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 11,
+      "metadata": {
+        "id": "gWjuvmLlsfqC",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "a34f6e25-8f5d-4a01-a111-2ac65c68c3f5"
+      },
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[0, 3/2]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 11
+        }
+      ],
+      "source": [
+        "#write your code\n",
+        "# --- Part 3: Fundamental Calculus ---\n",
+        "# 1. Solve function g(x)\n",
+        "\n",
+        "x = sp.Symbol('x')\n",
+        "G_function = 4*x**3 - 6*x**2\n",
+        "sol_g = sp.solve(G_function, x)\n",
+        "sol_g"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 1. Find the Derivative\n",
+        "\n",
+        "dif_g = sp.diff(G_function, x)\n",
+        "dif_g\n"
+      ],
+      "metadata": {
+        "id": "XQI-SrZwt0QT",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 39
+        },
+        "outputId": "c5f6b318-98f9-4ece-df3a-a74fd905ccd5"
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "12*x**2 - 12*x"
+            ],
+            "text/latex": "$\\displaystyle 12 x^{2} - 12 x$"
+          },
+          "metadata": {},
+          "execution_count": 12
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 2. Find the Indefinite Integral\n",
+        "C = sp.Symbol('C')\n",
+        "int_g = sp.integrate(G_function, x)\n",
+        "int_g + C\n"
+      ],
+      "metadata": {
+        "id": "uJ1fv7q5uDX9",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 39
+        },
+        "outputId": "037a16de-ec70-4432-bdfd-c5713387a7e5"
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "C + x**4 - 2*x**3"
+            ],
+            "text/latex": "$\\displaystyle C + x^{4} - 2 x^{3}$"
+          },
+          "metadata": {},
+          "execution_count": 14
+        }
+      ]
+    }
+  ]
+}
